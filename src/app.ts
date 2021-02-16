@@ -11,6 +11,24 @@ form.addEventListener('submit', (e: Event) => {
         type.value,
         toFrom.value,
         details.value,
-        amount.value
+        amount.valueAsNumber
     );
 })
+
+class Invoice {
+
+    name: string;
+    details: string;
+    amount: number;
+
+
+    constructor(n: string, d: string, a: number) {
+        this.name = n;
+        this.details = d;
+        this.amount = a;
+    }
+
+    format() {
+        console.log(`${this.name} owes ${this.details} for ${this.amount}€`);
+    }
+}
