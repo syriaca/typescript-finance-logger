@@ -17,18 +17,23 @@ form.addEventListener('submit', (e: Event) => {
 
 class Invoice {
 
-    name: string;
-    details: string;
-    amount: number;
-
-
-    constructor(n: string, d: string, a: number) {
-        this.name = n;
-        this.details = d;
-        this.amount = a;
-    }
+    constructor(
+        readonly client: string, 
+        private details: string,
+        public amount: number
+    ) {}
 
     format() {
-        console.log(`${this.name} owes ${this.details} for ${this.amount}€`);
+        console.log(`${this.client} owes a ${this.details} for ${this.amount}€`)
     }
 }
+
+let invoices: Invoice[] = [];
+let invoiceOne = new Invoice("mario", "star", 4000);
+let invoiceTwo = new Invoice("yoshi", "egg", 500);
+
+invoices.push(invoiceOne, invoiceTwo);
+
+invoices.forEach(inv => {
+    console.log(inv.client, inv.amount, inv.format())
+})
