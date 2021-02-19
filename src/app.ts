@@ -1,3 +1,5 @@
+import { Invoice } from './classes/Invoice.js';
+
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 const type = document.querySelector('#type') as HTMLSelectElement;
 const toFrom = document.querySelector('#toFrom') as HTMLInputElement;
@@ -14,19 +16,6 @@ form.addEventListener('submit', (e: Event) => {
         amount.valueAsNumber
     );
 })
-
-class Invoice {
-
-    constructor(
-        readonly client: string, 
-        private details: string,
-        public amount: number
-    ) {}
-
-    format() {
-        console.log(`${this.client} owes a ${this.details} for ${this.amount}€`)
-    }
-}
 
 let invoices: Invoice[] = [];
 let invoiceOne = new Invoice("mario", "star", 4000);
