@@ -16,10 +16,3 @@ form.addEventListener('submit', (e) => {
     }
     console.log(doc);
 });
-let invoices = [];
-let invoiceOne = new Invoice("mario", "star", 4000);
-let invoiceTwo = new Invoice("yoshi", "egg", 500);
-invoices.push(invoiceOne, invoiceTwo);
-invoices.forEach(inv => {
-    console.log(inv.client, inv.amount, inv.format());
-});
