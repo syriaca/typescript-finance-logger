@@ -7,15 +7,15 @@ const toFrom = document.querySelector('#toFrom');
 const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
 const list = document.querySelector(".item-list");
+const listTemplate = new ListTemplate(list);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let doc;
-    const template = new ListTemplate(list);
     if (type.value === 'invoice') {
         doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
     }
     else {
         doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
     }
-    template.render(doc, "test", "start");
+    listTemplate.render(doc, type.value, type.value === "payment" ? "start" : "end");
 });

@@ -10,6 +10,11 @@ export class ListTemplate {
         li.append(h4);
         p.innerText = item.format();
         li.append(p);
-        this.container.append(li);
+        if (position === 'start') {
+            this.container.prepend(li);
+        }
+        else {
+            this.container.append(li);
+        }
     }
 }
